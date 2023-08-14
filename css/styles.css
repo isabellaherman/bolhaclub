@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 10px 0;
+}
+
+.logo-img {
+    width: 100px;
+}
+
+.twitter-icon {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Provides spacing between items */
+}
+
+@media (max-width: 768px) {
+    .footer-right {
+        flex-direction: column;
+    }
+}

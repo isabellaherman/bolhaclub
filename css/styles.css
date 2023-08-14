@@ -5,13 +5,13 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #f8f9fa;
-    overflow-x: hidden; /* Impede o overflow horizontal */
+    overflow-x: hidden; 
     width: 100%;
     max-width: 100%;
 }
 
 html {
-    overflow-x: hidden; /* Impede o overflow horizontal */
+    overflow-x: hidden; 
     width: 100%;
     max-width: 100%;
 }
@@ -50,49 +50,50 @@ footer {
     gap: 10px;
 }
 
-.cta-text {
-    font-size: 1.5em;
-    color: #333;
-    margin-top: 20px;
-}
-
 .paint-button {
-    border: 2px solid #007bff; /* Adicionando uma borda azul */
+    border: 2px solid lightgray; /* Contorno cinza claro */
     border-radius: 25px;
-    background-color: transparent;
+    background-color: white; /* Fundo branco */
     color: #333;
     font-weight: bold;
     position: relative;
     padding: 10px 20px;
     transition: color 0.3s, border-color 0.3s;
     overflow: hidden;
-    outline: none; /* Removendo a outline padrão */
-}
-
-.paint-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: #007bff;
-    transition: width 0.4s ease-out;
-    z-index: -1; /* Posicionando atrás do texto */
+    outline: none;
 }
 
 .paint-button:hover, .paint-button:focus {
-    color: white;
-    border-color: #003366; /* Azul marinho para a borda em hover/foco */
+    color: #003366;
+    border-color: #003366;
+    background: repeating-linear-gradient( 
+        90deg,
+        #FFB3BA 0%,
+        #FFB3BA 10%,
+        #FFDFBA 10%,
+        #FFDFBA 20%,
+        #FFFFBA 20%,
+        #FFFFBA 30%,
+        #BAFFC9 30%,
+        #BAFFC9 40%,
+        #BAE1FF 40%,
+        #BAE1FF 50%
+    );
+    background-size: 200% 100%;
+    animation: rainbowStripe 3s infinite linear;
 }
 
-.paint-button:hover::before {
-    width: 100%;
+@keyframes rainbowStripe {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
-/* Adicionando um estilo de foco específico */
 .paint-button:focus {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Este é um glow azul claro ao redor do botão */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -101,12 +102,11 @@ footer {
     }
 
     .cta-text {
-        font-size: 1.2em; /* Reduz o tamanho da fonte */
-        max-width: 90vw; /* Aumenta a largura máxima para aproveitar o espaço */
+        font-size: 1.2em; 
+        max-width: 90vw;
     }
 
     .input-group {
-        max-width: 90vw; /* Aumenta a largura máxima */
+        max-width: 90vw;
     }
 }
-

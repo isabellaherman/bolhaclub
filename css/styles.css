@@ -5,13 +5,13 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #f8f9fa;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Impede o overflow horizontal */
     width: 100%;
     max-width: 100%;
 }
 
 html {
-    overflow-x: hidden;
+    overflow-x: hidden; /* Impede o overflow horizontal */
     width: 100%;
     max-width: 100%;
 }
@@ -29,15 +29,70 @@ footer {
     width: 100px;
 }
 
-.twitter-icon {
-    width: 20px;
-    margin-right: 5px;
+.cta-text {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+    max-width: 50vw; /* limita o texto a 50% da largura da tela */
+    margin-left: auto; /* centraliza o texto com o valor de margin-right */
+    margin-right: auto;
+}
+
+.input-group {
+    max-width: 50vw; /* limita o grupo de input a 50% da largura da tela */
+    margin-left: auto; /* centraliza o grupo com o valor de margin-right */
+    margin-right: auto;
 }
 
 .footer-right {
     display: flex;
     align-items: center;
-    gap: 10px; /* Provides spacing between items */
+    gap: 10px;
+}
+
+.cta-text {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+}
+
+.paint-button {
+    border: 2px solid #007bff; /* Adicionando uma borda azul */
+    border-radius: 25px;
+    background-color: transparent;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    padding: 10px 20px;
+    transition: color 0.3s, border-color 0.3s;
+    overflow: hidden;
+    outline: none; /* Removendo a outline padrão */
+}
+
+.paint-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #007bff;
+    transition: width 0.4s ease-out;
+    z-index: -1; /* Posicionando atrás do texto */
+}
+
+.paint-button:hover, .paint-button:focus {
+    color: white;
+    border-color: #003366; /* Azul marinho para a borda em hover/foco */
+}
+
+.paint-button:hover::before {
+    width: 100%;
+}
+
+/* Adicionando um estilo de foco específico */
+.paint-button:focus {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Este é um glow azul claro ao redor do botão */
 }
 
 @media (max-width: 768px) {

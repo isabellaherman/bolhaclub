@@ -1,0 +1,25 @@
+on:
+  push:
+    branches: 
+      - "developer2"
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Docker Build & Push to Docker Hub
+        uses: opspresso/action-docker@master
+        with:
+          args: --docker --TAG=${{ github.sha }}
+        env:
+          USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKERFILE: "Dockerfile"
+          IMAGE_NAME: "uphiago/mach3"
+          TAG_NAME: ${{ github.sha }}
+          LATEST: "true"
